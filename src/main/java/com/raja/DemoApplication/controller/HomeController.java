@@ -21,4 +21,15 @@ public class HomeController {
         u.setEmali("raja@gmail.com");
         return u;
     }
+
+    @GetMapping("/{id}/{id2}")
+    public String getPathVariable(@PathVariable String id, @PathVariable("id2") String name){
+        return "The Path Variable is "+id+ " : "+name;
+    }
+
+    @GetMapping("/userName")
+    public String requestParam(@RequestParam String userName,
+                               @RequestParam(name ="email", required = false, defaultValue = "") String emailID ){
+        return "My name is Raja "+userName +" And Email Id is :"+emailID;
+    }
 }
