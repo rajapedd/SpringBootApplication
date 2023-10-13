@@ -33,4 +33,11 @@ public class EmployeeServiceImpl implements EmployeeService{
        return employees.stream().filter(emp->emp.getEmployeeId().equals(id)).findFirst().orElseThrow(() -> new RuntimeException("" +"Employee is Not Found For ID :"+id));
        // return employees.stream().filter(emp->emp.getEmployeeId().equals(id)).findFirst().orElseThrow(() -> new EmployeeNotFoundException("" +"Employee is Not Found For ID :"+id));
     }
+
+    @Override
+    public String deleteEmployeeById(String id) {
+        Employee emp = employees.stream().filter(i->i.getEmployeeId().equalsIgnoreCase(id)).findFirst().get();
+        employees.remove(emp);
+        return "Employee Deleted Successfully......! "+id;
+    }
 }

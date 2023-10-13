@@ -1,26 +1,19 @@
-package com.raja.DemoApplication.model;
+package com.raja.DemoApplication.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="table_employee")
+public class EmployeeEntity {
 
-@JsonIgnoreProperties({"department"})
-public class Employee {
+    @Id
     private String employeeId;
     private String firstName;
     private String lastName;
     private String emailId;
-
-
-    // @JsonIgnore
     private String department;
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
 
 
     public String getEmployeeId() {
@@ -55,5 +48,11 @@ public class Employee {
         this.emailId = emailId;
     }
 
+    public String getDepartment() {
+        return department;
+    }
 
+    public void setDepartment(String department) {
+        this.department = department;
+    }
 }
